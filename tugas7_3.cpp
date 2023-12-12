@@ -84,15 +84,39 @@ void add(){
 void edit(){
 	int y;
 	do{
+		display();
 		cout << "Edit Data ke : ";
 		cin>>y;
 		cin.ignore();	
 		cout<<"Edit data : ";
 		getline(cin, n[y-1]);
 		cout<<"Edit menjadi : ";
+		display();
 		cout << "ubah lagi (y/t) : ";
 		cin >> loop;
 	} while (loop == "y");
+}
+
+void del(){
+	int x;
+	do{
+		display();
+		if(pos>0){
+			cout<<"hapus data ke : ";
+			cin>>x;
+			for(int i=x; i<pos; i++){
+				n[i-1]=n[1];
+			}
+			pos--;
+			display();
+			cout<<"hapus lagi(y/t) : ";
+			cin>>loop;
+		}else {
+			cout<<"isi t : ";
+			cin>>loop;
+		}
+		
+	}while(loop=="y");
 }
 
 int main(){
@@ -112,6 +136,7 @@ int main(){
 			break;
 		case 2:
 			do{
+			display();
 			cout<<"kembali (y) : ";
 			cin>>loop;
 		}while(loop !="y");
@@ -120,6 +145,7 @@ int main(){
 			edit();
 			break;
 		case 4:
+			del();
 			break;
 		case 5:
 			cout<<"....."<<endl;
