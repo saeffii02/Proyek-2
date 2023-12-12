@@ -6,8 +6,36 @@ string n[max], nik[max], kab[max], TTL[max], imunisasi[max], polio[max], campak[
 int pos=0;
 
 
-
-void add(){ 
+void display(){
+	system("cls");
+	if(pos>0){
+		cout<<"Data Tersimpan"<<endl;
+		for(int a=0; a<pos; a++){
+			cout<<a+1<<". Data Vaksin "<<endl;
+			cout<<"  Nama : "<< n[a]<<endl;
+			cout<<"  NIK : "<< nik[a]<<endl;
+			cout<<"  kab : "<< kab[a]<<endl;
+			cout<<"  Tempat, tanggal lahir : "<< TTL[a]<<endl;
+			cout<<"       "<<endl;
+			cout<<"usia 0-6 bulan "<<endl;
+			cout<<"  Imunisasi : "<< imunisasi[a] <<endl;
+			cout<<"  Polio : " << polio[a]<<endl;
+			cout<<"usia 6-12 bulan "<<endl;
+			cout<<"  Campak : "<< campak[a] <<endl;
+			cout<<"  Influenza : " << influenza[a]<<endl;
+			cout<<"usia 12-24 bulan"<<endl;
+			cout<<"  Hepatitis A : "<< hepatitis_A[a] <<endl;
+			cout<<"  PCV : " << PCV[a]<<endl;
+			cout<<"usia 2-18 tahun "<<endl;
+			cout<<"  Campak : "<< campak[a] <<endl; 
+			cout<<"  Dengue : " << dengue[a]<<endl;
+		}
+	}else{
+		cout<<"Data Kosong"<<endl;
+	}
+}
+void add(){
+	display(); 
 	do{
 		if(pos<max){
 			cin.ignore();
@@ -40,6 +68,7 @@ void add(){
 			cout<<"  Dengue : ";
 			getline(cin, dengue[pos]);
 			pos++;
+			display();
 			cout<<"ulangi (y/t) : ";
 			cin>>loop;
 		}else{
